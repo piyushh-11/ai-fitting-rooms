@@ -1,7 +1,7 @@
 # outfit-maker
 A modern and playful virtual outfit try-on website!
 
-⚙️ Features:
+🤯 Features:
 - Upload a full-length image of themselves
 - Select clothing categories (tops, pants, accessories, etc.)
 - Upload clothing images from retailer websites
