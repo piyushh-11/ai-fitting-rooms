@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div className="pt-16"> {/* Added padding-top to account for fixed navbar */}
       <Navbar />
-      <section id="home" className="py-20 bg-gradient-to-b from-blue-50 to-white">
+      <section id="home" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="lg:w-1/2 mb-12 lg:mb-0">
@@ -42,34 +42,42 @@ const Home = () => {
             </div>
             <div className="lg:w-1/2">
               <div className="relative">
-                <div className="flex items-center justify-between">
-                  <div className="w-[48%] rounded-lg overflow-hidden shadow-lg">
-                    <div className="bg-gray-200 p-2 text-center text-sm font-medium">BEFORE</div>
-                    <img
-                      src={before}
-                      alt="Before using Outfit Maker"
-                      className="w-full"
-                    />
-                  </div>
-                  <div className="w-[48%] rounded-lg overflow-hidden shadow-lg">
-                    <div className="bg-blue-200 p-2 text-center text-sm font-medium">AFTER</div>
-                    <img
-                      src={after}
-                      alt="After using Outfit Maker"
-                      className="w-full"
-                    />
-                  </div>
+              <div className="flex items-center justify-between space-x-6">
+                <div className="w-[48%] rounded-xl overflow-hidden shadow-xl transform hover:border border-white transition-all duration-300">
+                <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 p-3 text-center text-white font-semibold tracking-wide">
+                  BEFORE
                 </div>
-                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold">
-                  AI-Powered Results
+                <img
+                  src={before}
+                  alt="Before using Outfit Maker"
+                  className="w-full object-cover"
+                  loading="lazy"
+                />
                 </div>
+                <div className="w-[48%] rounded-xl overflow-hidden shadow-xl transform hover:border border-white transition-all duration-300">
+                <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-3 text-center text-white font-semibold tracking-wide">
+                  AFTER
+                </div>
+                <img
+                  src={after}
+                  alt="After using Outfit Maker"
+                  className="w-full object-cover"
+                  loading="lazy"
+                />
+                </div>
+              </div>
+              <div 
+                className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 text-white px-8 py-3 rounded-full text-sm font-bold shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm"
+              >
+                ✨ AI-Powered Magic ✨
+              </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="how-it-works" className="py-20 bg-gray-50">
+      <section id="how-it-works" className="py-20 bg-gradient-to-bl from-blue-50 via-white to-indigo-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -106,14 +114,18 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="pricing" className="py-16">
+      <section id="pricing" className="py-16 bg-gradient-to-tr from-purple-50 via-white to-blue-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Pricing Plans</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Pricing Plans
+            </span>
+          </h2>
 
           <div className="flex justify-center mb-8">
-            <div className="bg-gray-100 p-1 rounded-lg inline-flex relative">
+            <div className="bg-white/80 backdrop-blur-sm p-1 rounded-lg inline-flex relative shadow-lg">
               <div
-                className="absolute top-1 bottom-1 transition-all duration-300 ease-in-out rounded-md bg-white shadow-sm"
+                className="absolute top-1 bottom-1 transition-all duration-300 ease-in-out rounded-md bg-blue-100 shadow-sm"
                 style={{
                   width: '48%',
                   left: isYearly ? '50%' : '2%',
@@ -136,7 +148,7 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-sm relative flex flex-col h-full transition-all duration-300 hover:border-blue-500 hover:shadow-md">
+            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-lg border border-gray-200 shadow-sm relative flex flex-col h-full transition-all duration-300 hover:border-blue-500 hover:shadow-xl hover:-translate-y-1">
               {isYearly && (
                 <div className="absolute -top-3 -right-3 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   Save ${basicSaving}/mo
@@ -156,11 +168,14 @@ const Home = () => {
                 </ul>
               </div>
               <div className="mt-auto">
-                <button className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">Get Started</button>
+                <button className="w-full py-2 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-[1.02]">
+                  Get Started
+                </button>
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-lg border border-blue-200 shadow-md relative flex flex-col h-full transition-all duration-300 hover:border-blue-500 hover:shadow-lg">
+            <div className="bg-gradient-to-b from-blue-50 to-white p-8 rounded-lg border border-blue-200 shadow-lg relative flex flex-col h-full transition-all duration-300 hover:border-blue-500 hover:shadow-xl hover:-translate-y-1 scale-105">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg"></div>
               {isYearly && (
                 <div className="absolute -top-3 -right-3 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   Save ${premiumSaving}/mo
@@ -180,12 +195,14 @@ const Home = () => {
                   <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Priority support</li>
                 </ul>
               </div>
-              <div className="mt-auto">
-                <button className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">Get Started</button>
+              <div className="mt-auto relative z-10">
+                <button className="w-full py-2 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-[1.02]">
+                  Get Started
+                </button>
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-sm relative flex flex-col h-full transition-all duration-300 hover:border-blue-500 hover:shadow-md">
+            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-lg border border-gray-200 shadow-sm relative flex flex-col h-full transition-all duration-300 hover:border-blue-500 hover:shadow-xl hover:-translate-y-1">
               {isYearly && (
                 <div className="absolute -top-3 -right-3 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   Save ${ultraSaving}/mo
@@ -206,33 +223,39 @@ const Home = () => {
                 </ul>
               </div>
               <div className="mt-auto">
-                <button className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">Get Started</button>
+                <button className="w-full py-2 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-[1.02]">
+                  Get Started
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="faq" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4"></div>
-        <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-        <div className="max-w-3xl mx-auto space-y-4">
-          <div className="bg-white p-6 rounded-lg border border-gray-100">
-            <h3 className="text-xl font-semibold mb-2">How does Outfit Maker work?</h3>
-            <p className="text-gray-600">Our AI-powered system analyzes your preferences and style to create perfect outfit combinations from your wardrobe.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg border border-gray-100">
-            <h3 className="text-xl font-semibold mb-2">Can I customize my style preferences?</h3>
-            <p className="text-gray-600">Yes! You can set your style preferences and update them anytime to get personalized outfit recommendations.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg border border-gray-100">
-            <h3 className="text-xl font-semibold mb-2">How often are new features added?</h3>
-            <p className="text-gray-600">We regularly update our platform with new features and improvements based on user feedback.</p>
+      <section id="faq" className="py-16 bg-gradient-to-br from-indigo-50 via-white to-blue-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Frequently Asked Questions
+            </span>
+          </h2>
+          <div className="max-w-3xl mx-auto space-y-4">
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg border border-gray-100 transition-all duration-300 hover:border-blue-200 hover:shadow-md">
+              <h3 className="text-xl font-semibold mb-2">How does Outfit Maker work?</h3>
+              <p className="text-gray-600">Our AI-powered system analyzes your preferences and style to create perfect outfit combinations from your wardrobe.</p>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg border border-gray-100 transition-all duration-300 hover:border-blue-200 hover:shadow-md">
+              <h3 className="text-xl font-semibold mb-2">Can I customize my style preferences?</h3>
+              <p className="text-gray-600">Yes! You can set your style preferences and update them anytime to get personalized outfit recommendations.</p>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg border border-gray-100 transition-all duration-300 hover:border-blue-200 hover:shadow-md">
+              <h3 className="text-xl font-semibold mb-2">How often are new features added?</h3>
+              <p className="text-gray-600">We regularly update our platform with new features and improvements based on user feedback.</p>
+            </div>
           </div>
         </div>
       </section >
-    </div >
-
+    </div>
   )
 }
 

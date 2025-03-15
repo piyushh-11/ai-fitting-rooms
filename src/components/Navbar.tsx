@@ -41,25 +41,27 @@ const scrollToSection = (sectionId: string) => {
 }
 
   return (
-    <nav className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+    <nav className="bg-white/80 backdrop-blur-sm shadow-sm fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo/Brand */}
           <button onClick={() => scrollToSection('home')} className="flex items-center">
             <div className="flex-shrink-0">
-              <span className="font-bold text-xl">OutfitMaker</span>
+              <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                OutfitMaker
+              </span>
             </div>
           </button>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-gray-900">
+            <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-blue-600 transition-colors duration-300">
               Pricing
             </button>
-            <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-gray-900">
+            <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-blue-600 transition-colors duration-300">
               FAQ
             </button>
-            <a href="/login" className="text-gray-700 hover:text-gray-900">
+            <a href="/login" className="text-gray-700 hover:text-blue-600 transition-colors duration-300">
               Login
             </a>
           </div>
