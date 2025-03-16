@@ -8,15 +8,15 @@ const Home = () => {
 
   // Calculate monthly equivalent prices for yearly plans
   const basicMonthly = 5;
-  const basicYearly = 50 / 12; // $4.17/mo
+  const basicYearly = 4; // $4.17/mo
   const basicSaving = Math.round((basicMonthly - basicYearly) * 100) / 100;
   
   const premiumMonthly = 10;
-  const premiumYearly = 100 / 12; // $8.33/mo
+  const premiumYearly = 8; // $8.33/mo
   const premiumSaving = Math.round((premiumMonthly - premiumYearly) * 100) / 100;
   
   const ultraMonthly = 20;
-  const ultraYearly = 200 / 12; // $16.67/mo
+  const ultraYearly = 16; // $16.67/mo
   const ultraSaving = Math.round((ultraMonthly - ultraYearly) * 100) / 100;
 
   return (
@@ -134,7 +134,7 @@ const Home = () => {
               />
               <button
                 onClick={() => setIsYearly(false)}
-                className={`px-4 py-1 rounded-md relative z-10 transition-colors duration-300 ${!isYearly ? 'text-blue-600 font-medium' : 'text-gray-500'}`}
+                className={`px-4 pl-3 rounded-md relative z-10 transition-colors duration-300 ${!isYearly ? 'text-blue-600 font-medium' : 'text-gray-500'}`}
               >
                 Monthly
               </button>
@@ -157,14 +157,15 @@ const Home = () => {
               <div>
                 <h3 className="text-xl font-bold mb-4">Basic</h3>
                 <p className="text-4xl font-bold mb-4">
-                  ${isYearly ? basicYearly.toFixed(2) : basicMonthly}<span className="text-lg text-gray-500">/mo</span>
+                  ${isYearly ? basicYearly.toFixed(0) : basicMonthly}<span className="text-lg text-gray-500">/mo</span>
                 </p>
                 {isYearly && (
-                  <p className="text-sm text-green-600 mb-4">Billed annually (${50}/year)</p>
+                  <p className="text-sm text-green-600 mb-4">Billed annually (${basicYearly * 12}/year)</p>
                 )}
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Basic outfit suggestions</li>
-                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>5 outfits per month</li>
+                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>10 outfits per month</li>
+                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Tops, Bottoms, Shoes</li>
+                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Clothing adjustments</li>
                 </ul>
               </div>
               <div className="mt-auto">
@@ -174,7 +175,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-b from-blue-50 to-white p-8 rounded-lg border border-blue-200 shadow-lg relative flex flex-col h-full transition-all duration-300 hover:border-blue-500 hover:shadow-xl hover:-translate-y-1 scale-105">
+            <div className="bg-gradient-to-b from-blue-50 to-white p-8 rounded-lg border border-blue-200 shadow-lg relative flex flex-col h-full transition-all duration-300 hover:border-blue-500 hover:shadow-xl hover:-translate-y-1">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg"></div>
               {isYearly && (
                 <div className="absolute -top-3 -right-3 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
@@ -182,17 +183,17 @@ const Home = () => {
                 </div>
               )}
               <div>
-                <h3 className="text-xl font-bold mb-4">Premium</h3>
+                <h3 className="text-xl font-bold mb-4">Pro</h3>
                 <p className="text-4xl font-bold mb-4">
-                  ${isYearly ? premiumYearly.toFixed(2) : premiumMonthly}<span className="text-lg text-gray-500">/mo</span>
+                  ${isYearly ? premiumYearly.toFixed(0) : premiumMonthly}<span className="text-lg text-gray-500">/mo</span>
                 </p>
                 {isYearly && (
-                  <p className="text-sm text-green-600 mb-4">Billed annually (${100}/year)</p>
+                  <p className="text-sm text-green-600 mb-4">Billed annually (${premiumYearly * 12}/year)</p>
                 )}
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Advanced AI suggestions</li>
-                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Unlimited outfits</li>
-                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Priority support</li>
+                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>25 outfits per month</li>
+                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>All clothing categories</li>
+                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>All Basic features</li>
                 </ul>
               </div>
               <div className="mt-auto relative z-10">
@@ -211,15 +212,15 @@ const Home = () => {
               <div>
                 <h3 className="text-xl font-bold mb-4">Ultra</h3>
                 <p className="text-4xl font-bold mb-4">
-                  ${isYearly ? ultraYearly.toFixed(2) : ultraMonthly}<span className="text-lg text-gray-500">/mo</span>
+                  ${isYearly ? ultraYearly.toFixed(0) : ultraMonthly}<span className="text-lg text-gray-500">/mo</span>
                 </p>
                 {isYearly && (
-                  <p className="text-sm text-green-600 mb-4">Billed annually (${200}/year)</p>
+                  <p className="text-sm text-green-600 mb-4">Billed annually (${ultraYearly * 12}/year)</p>
                 )}
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Custom AI model</li>
-                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>API access</li>
-                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>24/7 support</li>
+                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Unlimited outfits per month</li>
+                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>history & virtual wardrobe</li>
+                  <li className="flex items-center"><svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>All Pro features</li>
                 </ul>
               </div>
               <div className="mt-auto">
